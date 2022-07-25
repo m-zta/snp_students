@@ -5,6 +5,6 @@
 ### Übersicht
 [Online Beschreibungen der Praktika und Aufgaben](https://github.zhaw.ch/pages/SNP/snp_students)
 
-[Praktika.pdf](https://github.zhaw.ch/SNP/snp_studentsblob/master/build/latex/main.pdf)
+[Praktika.pdf](https://github.zhaw.ch/SNP/snp_students/blob/master/build/latex/main.pdf)
 
 [Arbeitsumgebung für die Praktika](https://github.zhaw.ch/SNP/snp-lab-env)
