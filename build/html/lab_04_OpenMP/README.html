@@ -1,0 +1,200 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<meta content="metadata description" lang="en" name="description" xml:lang="en" />
+<meta content="description des métadonnées" lang="fr" name="description" xml:lang="fr" />
+<meta content="Sphinx, MyST" name="keywords" />
+<meta content="en_US" property="og:locale" />
+
+    <title>04 - OpenMP &#8212; MPC Labs  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="05 - Incremental computation of moments" href="../lab_05_SIMD/README.html" />
+    <link rel="prev" title="03 - Data Decomposition" href="../lab_03_Data_Decomposition/README.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section class="tex2jax_ignore mathjax_ignore" id="openmp">
+<h1>04 - OpenMP<a class="headerlink" href="#openmp" title="Permalink to this headline">¶</a></h1>
+<hr class="docutils" />
+<section id="introduction">
+<h2>1. Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>In this laboratory we wish to explore the application of the OpenMP framework. We shall be using the results of the data decomposition lab (lab_03) as a code base.</p>
+<p>There is one lab session dedicated to this laboratory. The laboratory will be marked. Group work is highly recommended.</p>
+</section>
+<hr class="docutils" />
+<section id="learning-aims">
+<h2>2. Learning Aims<a class="headerlink" href="#learning-aims" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>The basics of openMP</p></li>
+<li><p>The conceptual similarities of OpenMP as compared to the direct use of processes and threads as units of execution (UE)</p></li>
+<li><p>The (syntatic) simplifications that OpenMP provides as opposed to direct use of threads and processes as units of execution.</p></li>
+<li><p>The operational similarities of OpenMP as compared to the direct use of processes and threads</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="task-1-application-of-openmp">
+<h2>3. Task 1: Application of OpenMP<a class="headerlink" href="#task-1-application-of-openmp" title="Permalink to this headline">¶</a></h2>
+<p><strong>Recommended ET &amp; IT</strong></p>
+<p>Convert your data decomposition program into an openMP variant.</p>
+<p>You must be careful to ensure that your program acttually works in parallel. Use htop, for instance, to show this.</p>
+<p>Be prepared to explain the following:</p>
+<ol class="arabic simple">
+<li><p>What was the process of converting to OpenMP?</p></li>
+<li><p>How is boundary data handled?</p></li>
+<li><p>What other design constraints did you consider?</p></li>
+<li><p>Would you do it that way again?</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="evaluation">
+<h2>4. Evaluation<a class="headerlink" href="#evaluation" title="Permalink to this headline">¶</a></h2>
+<p>This laboratory is evaluated on the basis of the discussions with you on your code/solution. You can receive a maximum of 5 marks for this laboratory.</p>
+<p>A perfect solution is good. An imperfect solution is acceptable. If your solution doesn’t work, then it an identification of the problems and mistakes made will be accepted for grading.</p>
+<p>I <strong>welcome</strong> in-depth discussions on the contents of the lab and your solutions <strong>during</strong> the implementation process.</p>
+</section>
+<hr class="docutils" />
+<section id="version">
+<h2>5. Version<a class="headerlink" href="#version" title="Permalink to this headline">¶</a></h2>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="text-left head"><p>Version</p></th>
+<th class="text-left head"><p>Date</p></th>
+<th class="text-left head"><p>By</p></th>
+<th class="text-left head"><p>Comments</p></th>
+<th class="text-left head"><p>Class Level</p></th>
+<th class="text-left head"><p>Module</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p>V1.1</p></td>
+<td class="text-left"><p>02.2022</p></td>
+<td class="text-left"><p>donn</p></td>
+<td class="text-left"><p>Added some sections</p></td>
+<td class="text-left"><p>6S</p></td>
+<td class="text-left"><p>MPC</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p>V1.0</p></td>
+<td class="text-left"><p>02.2021</p></td>
+<td class="text-left"><p>donn</p></td>
+<td class="text-left"><p>First version</p></td>
+<td class="text-left"><p>6S</p></td>
+<td class="text-left"><p>MPC</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<p class="logo">
+  <a href="../index.html">
+    <img class="logo" src="../_static/logo.png" alt="Logo"/>
+    
+    <h1 class="logo logo-name">MPC Labs</h1>
+    
+  </a>
+</p>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../lab_01_Setup_Laboratory/README.html">01 - Setup Laboratory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab_02_Process_Threads_Task_Decomposition/README.html">02 - Process, Threads, Task Decomposition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab_03_Data_Decomposition/README.html">03 - Data Decomposition</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">04 - OpenMP</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#learning-aims">2. Learning Aims</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#task-1-application-of-openmp">3. Task 1: Application of OpenMP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#evaluation">4. Evaluation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version">5. Version</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../lab_05_SIMD/README.html">05 - Incremental computation of moments</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lab_06_Real-Time_with_SIMD_Open_MP/README.html">06 - Real-Time with SIMD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../appendix/appendix_u96.html">Ultra96-V2</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="../lab_03_Data_Decomposition/README.html" title="previous chapter">03 - Data Decomposition</a></li>
+      <li>Next: <a href="../lab_05_SIMD/README.html" title="next chapter">05 - Incremental computation of moments</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, stsh.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.3.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/lab_04_OpenMP/README.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

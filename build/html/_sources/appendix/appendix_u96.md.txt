@@ -1,0 +1,178 @@
+# Ultra96-V2
+
+## 1. Introduction Ultra96-V2
+
+![Ultra96-V2 Block Diagram](./img/u96_block.png)
+
+Component    | Description
+-----------|--------------------
+SoC        | Xilinx Zynq UltraScale+ MPSoC ZU3EG A484
+RAM        | Micron 2 GB (512M x32) LPDDR4 Memory
+SD-Flash   | Delkin 16 GB microSD card + adapter
+GUI        | Downloadable SD card image for Linux OS with desktop environment
+Networking | Microchip Wi-Fi / Bluetooth
+Connections| 1x USB 3.0 Type Micro-B upstream port <br> 2x USB 3.0, 1x USB 2.0 Type A downstream ports
+Expansion  | 40-pin 96Boards Low-speed expansion header <br> 60-pin 96Boards High-speed expansion header
+Graphics   | Mini DisplayPort (MiniDP or mDP)
+
+
+### Xilinx Zynq UltraScale+ MPSoC
+
+Xilinx Zynq UltraScale+ MPSoC ZU3EG
+
+- __CPU__: Quad-core ARM __Cortex-A5__
+- __CPU__: Dual-core ARM __Cortex-R5F, TCM__
+- __GPU__: Mali-400 MP2
+- __FPGA__: 154K Programmable Logic Cells
+- 256KB On-Chip Memory w/ECC
+- UART
+- CAN
+- USB 2.0
+- I2C
+- SPI
+- 32b GPIO
+- Real Time Clock
+- WatchDog Timers
+- Triple Timer Counter
+
+### Ultra96 Block Diagram
+
+![Ultra96-V2 Block Diagram](img/u96_topology.png)
+
+___
+
+## 2. Setup
+
+### 2.1 Prepare SD card
+1. Download sd card image __ultra96v2_v2.6.0.img__ from __ftp://jupiter-win.zhaw.ch/shared/__ (using an FTP client or a browser, must be connected to ZHAW network) with the credentials:
+	- Username: mpcro  
+	- Password: mpcro  
+2. Write image to the SD card, you can either use:
+    -  [Etcher.io](https://etcher.io/) utility
+    -  __dd__ on unix based systems:
+
+```bash
+# byte copy image to /dev/sdX
+dd if=./ultra96v2_v2.6.0.img of=/dev/sdX bs=4M
+# Bytecopy with progress bar
+dd if=./ultra96v2_v2.6.0.img | pv -s 8G | dd of=/dev/mmcblk0 bs=4M 
+```
+
+The image contains the [PYNQ](http://www.pynq.io/) distribution for the Ultra96, it is an Ubuntu-based Linux OS.  
+
+### 2.2 Connect the Ultra96
+Plug in the cables as shown in the figure below.  
+
+![Ultra96-V2 connections](./img/u96_pynq_setup.png)
+
+### 2.3 Boot Linux from SD-card
+
+The SoC boot mode is configured by the __SW3__  DIP switch. Verify that the switch is set accordingly:
+
+Switch | Position
+----------|-------------
+1          | OFF
+2          | ON
+
+![Ultra96-V2 Boot Mode Switch](./img/u96_sdbootmode.png)
+
+Insert SD-Card and boot by pressing the power-on switch. When done one user led blinks (Linux heartbeat).  
+
+### 2.4 Access the Ultra96-V2  
+The PYNQ image provides ethernet over USB and a serial connection.
+Access the board either via serial:
+
+	- 115200 baud
+	- 8 data bits
+	- 1 stop bit
+	- No Parity
+	- No Flow Control
+	
+Or using SSH with the credentials:
+
+	- Username: xilinx  
+	- Password: xilinx  
+	
+The IP address is either 192.168.3.1 (when using ethernet over USB), or can be found by issuing the ```ip address``` command in a console.  
+
+Configure the WiFi in order to have a connection to the internet by modifying the file _/boot/boot.py_ (e.g. by using ```sudo nano /boot/boot.py``` ), add the following lines and insert your WiFi information.  
+
+```python
+from pynq.lib import Wifi
+
+port = Wifi()
+port.reset()
+port.connect('your_ssid', 'your_password', auto=True)
+```
+To reload the configuration a reboot is required ```sudo reboot```, after that the board should automatically connect to your network.
+
+### 2.5 Access the Ultra96 files  
+We will use the samba share to edit the files and will compile programs using the console.  
+To connect using Windows, type ```\\192.168.3.1\xilinx``` in the address bar of the file explorer and access using the same credentials as above (xilinx:xilinx). Then you can navigate the folders in the home directory (_/home/xilinx/_) and edit files using a text editor or IDE.  
+For Linux use the URL ```smb://192.168.3.1/xilinx``` with your file manager.  
+A Jupyter Notebook is availabe at <http://192.168.3.1> (password xilinx), from here Python development is possible.  
+
+___
+
+## 3. First steps  
+
+
+### 3.1 Hello, World!
+To compile programs we use the gcc compiler available in the distribution, in this section an example program is created and compiled. To automate compilation the make system is used by creating a _Makefile_.
+
+1. Connect to the U96 via USB or WiFi  
+2. Open a terminal either via a serial connection or via SSH  
+3. Connect to the samba share to edit files with the host  
+4. Create a folder in the home directory and add the source file as _hello.c_, example code provided below  
+5. Add the Makefile, an example is provided below  
+6. In the console run ```make hello```  
+7. Execute the program with ```./hello```  
+
+
+#### Example code  
+
+```c
+#include <stdio.h>
+
+int main(){
+	printf("Hello, World!\n");
+	return 0;
+}
+
+```
+
+#### Example Makefile  
+
+```make
+CC=gcc
+
+.PHONY: hello
+
+hello:
+	$(CC) -Wall hello.c -o hello
+
+
+```
+
+Further reading: 
+
+ - Makefiles [GNU Make](http://web.mit.edu/gnu/doc/html/make_2.html)  
+ - GCC [GCC Doc](https://gcc.gnu.org/onlinedocs/gcc-7.3.0/gcc/)  
+
+
+### 3.2 Useful programs
+The running processes as well as the system usage can be shown with the command ```htop```.  
+Information about the CPU can be printed with ```lscpu```.  
+To install programs and libraries the _apt_ package system is used:
+
+- Update catalog of available programs: ```sudo apt update```  
+- Install a program/library: ```sudo apt install program```  
+
+For further information refer to [APT Guide](https://itsfoss.com/apt-command-guide/) or the man page.  
+
+___
+
+## 4. References
+[Ultra96-V2](http://ultra96.org/product/ultra96-v2-development-board)  
+[PYNQ getting started](https://ultra96-pynq.readthedocs.io/en/latest/getting_started.html)
+
