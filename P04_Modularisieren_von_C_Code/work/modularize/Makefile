@@ -1,4 +1,4 @@
-SNP_SHARED_MAKEFILE := $(if $(SNP_SHARED_MAKEFILE),$(SNP_SHARED_MAKEFILE),"~/snp/shared.mk")
+SNP_SHARED_MAKEFILE := $(if $(SNP_SHARED_MAKEFILE),$(SNP_SHARED_MAKEFILE),~/snp/shared.mk)
 
 TARGET     := bin/triangle
 SOURCES    := src/triangle.c src/read.c src/rectang.c

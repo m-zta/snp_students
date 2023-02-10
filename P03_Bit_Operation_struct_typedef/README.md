@@ -45,7 +45,7 @@ Bit Operationen sind allgegenwärtig in den Computer-Wissenschaften und finden i
 #### 1. Basis Operationen
 Manipulationen von einzelnen Bits gehören zu den Basis Operationen und dienen als Grundlagen um weitere komplexere Konstrukte zu schaffen. 
 
-Verfollständigen sie folgendes Beispiel mit den drei Basis Operationen. Dabei gibt die Variable `bit` an, welches Bit manipuliert werden soll (Denken sie daran, dass die Bit-Positionen bei 0 beginnen. Bit 3 ist also das vierte Bit von rechts). Bei den gefragten Manipulationen, soll nur das angegebene `bit` geändert werden und der Rest soll unverändert bleiben:
+Vervollständigen sie folgendes Beispiel mit den drei Basis-Operationen. Dabei gibt die Variable `bit` an, welches Bit manipuliert werden soll (Denken sie daran, dass die Bit-Positionen bei 0 beginnen. Bit 3 ist also das vierte Bit von rechts). Bei den gefragten Manipulationen, soll nur das angegebene `bit` geändert werden und der Rest soll unverändert bleiben:
 
 - Bit 3 setzen: `0011 => 1011`
 - Bit 1 löschen: `1011 => 1001`
@@ -204,7 +204,7 @@ Erweitern sie den Code an den markierten Stellen, damit er kompiliert. Per Termi
 
 **Bemerkung**: Das Programm verwendet die Math Bibliothek `math.h`. Um das Programm kompilieren zu können, müssen sie das Flag `-lm` verwenden:
 
-    gcc -o main main.c -lm
+    gcc -o main -lm main.c
 
 ___
 ## 4. Bewertung
