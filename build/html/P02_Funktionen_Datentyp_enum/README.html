@@ -60,8 +60,8 @@ Beispiel einer Additions-Funktion:</p></li>
 
 <span class="nb">int</span> <span class="n">main</span><span class="p">(</span><span class="n">void</span><span class="p">)</span> <span class="p">{</span>
    <span class="nb">int</span> <span class="n">aa</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">bb</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">cc</span><span class="p">;</span>
-   <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2"> + </span><span class="si">%d</span><span class="s2"> = </span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">aa</span><span class="p">,</span> <span class="n">bb</span><span class="p">,</span> <span class="n">add</span><span class="p">(</span><span class="n">aa</span><span class="p">,</span> <span class="n">bb</span><span class="p">););</span>
- <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+   <span class="p">(</span><span class="n">void</span><span class="p">)</span> <span class="n">printf</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2"> + </span><span class="si">%d</span><span class="s2"> = </span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">aa</span><span class="p">,</span> <span class="n">bb</span><span class="p">,</span> <span class="n">add</span><span class="p">(</span><span class="n">aa</span><span class="p">,</span> <span class="n">bb</span><span class="p">));</span>
+   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="o">/*</span> <span class="n">Funktionsdefinition</span> <span class="o">*/</span>
@@ -70,14 +70,14 @@ Beispiel einer Additions-Funktion:</p></li>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Der Daten typt enum wird verwendet um die Lesbarkeit von Programmen zu erhöhen:</p>
+<p>Der Datentyp enum wird verwendet um die Lesbarkeit von Programmen zu erhöhen:</p>
 <p>Beispiel eines enum:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enum</span> <span class="n">Ampeln</span> <span class="o">=</span> <span class="p">{</span><span class="n">rot</span> <span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">gelb</span><span class="p">,</span> <span class="n">gruen</span><span class="p">};</span>
 
 <span class="nb">int</span> <span class="n">main</span><span class="p">(</span><span class="n">void</span><span class="p">)</span> <span class="p">{</span>
    <span class="n">Ampeln</span> <span class="n">ampel1</span><span class="p">;</span>
    <span class="k">if</span> <span class="p">(</span><span class="n">ampel1</span> <span class="o">==</span> <span class="n">rot</span><span class="p">)</span> <span class="p">{</span><span class="o">...</span><span class="p">}</span> 
- <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+   <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -127,22 +127,22 @@ Erweitern Sie dazu das Programm um folgende Aspekte:</p>
 <li><p>tageProMonat: Die Funktion gibt den die Tage des Monats für das definierte Jahr zurück. Verwenden Sie die Switch-Anweisung , sowie den enum Datentypen</p></li>
 </ul>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>int main (int argc, char *argv[]) {
-    
+
     int monat, jahr;
-     
+    
     //  Monat einlesen und Bereich ueberpruefen
     monat = gibIntWert(&quot;Monat&quot;, 1, 12);
     jahr  = gibIntWert(&quot;Jahr&quot;, 1600, 9999);
-	
+
     //  Ausgabe zum Test
-    printf(&quot;Monat: %d, Jahr: %d \n&quot;, monat, jahr);    
+    (void) printf(&quot;Monat: %d, Jahr: %d \n&quot;, monat, jahr);    
     
     //  Ausgabe zum Test (hier mit dem ternaeren Operator &quot;?:&quot;)
-    printf(&quot;%d ist %s Schaltjahr\n&quot;, jahr, istSchaltjahr(jahr) ? &quot;ein&quot; : &quot;kein&quot;);
+    (void) printf(&quot;%d ist %s Schaltjahr\n&quot;, jahr, istSchaltjahr(jahr) ? &quot;ein&quot; : &quot;kein&quot;);
 
-	// Ausgabe
-	printf(&quot;Der Monat %02d-%d hat %d Tage.\n&quot;, monat, jahr, tageProMonat(jahr, monat));
-   
+    // Ausgabe
+    (void) printf(&quot;Der Monat %02d-%d hat %d Tage.\n&quot;, monat, jahr, tageProMonat(jahr, monat));
+
     return 0;
 }
 </pre></div>
@@ -164,7 +164,7 @@ Prüfen Sie die Umsetzung beider Teilaufgaben mittels make test.</p>
 <section id="teilaufgabe-argumente-parsen-und-auf-korrektheit-prufen">
 <h4>3.2.1	Teilaufgabe Argumente Parsen und auf Korrektheit prüfen<a class="headerlink" href="#teilaufgabe-argumente-parsen-und-auf-korrektheit-prufen" title="Permalink to this headline">¶</a></h4>
 <p>Das Argument stellt ein gültiges Datum unseres Gregorianischen Kalenders dar (d.h. ein Datum ab Donnerstag, den 15. Oktober 1582, mit der Gregorianischen Schaltjahr Regel).
-Wenn kein Argument gegeben ist oder wenn das eingegebene Datum nicht gültig ist, soll das Programm einem Hilfetext auf stderr ausgeben und mit EXIT_FAILURE Exit Code terminieren. Wenn ein gültiges Datum erkannt wurde terminiert das Programm mit Exit Code EXIT_SUCCESS.</p>
+Wenn kein Argument gegeben ist oder wenn das eingegebene Datum nicht gültig ist, soll das Programm einen Hilfetext auf stderr ausgeben und mit EXIT_FAILURE Exit Code terminieren. Wenn ein gültiges Datum erkannt wurde terminiert das Programm mit Exit Code EXIT_SUCCESS.</p>
 <section id="argument-format">
 <h5>3.2.1.1 Argument Format<a class="headerlink" href="#argument-format" title="Permalink to this headline">¶</a></h5>
 <p>Das Format des Kommando Zeilen Arguments soll yyyy-mm-dd sein, wobei yyyy für das vier-stellige Jahr, mm für einen 1-2-stelligen Monat (1…12) und dd für einen Tag des Monats, beginnend mit 01. Z.B. 2020-02-29.</p>

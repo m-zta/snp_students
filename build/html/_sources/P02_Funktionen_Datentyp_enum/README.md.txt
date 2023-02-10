@@ -23,8 +23,8 @@ int add(int a, int b);
 
 int main(void) {
    int aa = 1, bb = 2, cc;
-   printf("%d + %d = %d", aa, bb, add(aa, bb););
- return 0;
+   (void) printf("%d + %d = %d", aa, bb, add(aa, bb));
+   return 0;
 }
 
 /* Funktionsdefinition */
@@ -32,7 +32,7 @@ int add(int a, int b) {
    return a + b;
 }
 ```
-Der Daten typt enum wird verwendet um die Lesbarkeit von Programmen zu erhöhen: 
+Der Datentyp enum wird verwendet um die Lesbarkeit von Programmen zu erhöhen: 
 
 Beispiel eines enum: 
 ```
@@ -41,7 +41,7 @@ enum Ampeln = {rot =1, gelb, gruen};
 int main(void) {
    Ampeln ampel1;
    if (ampel1 == rot) {...} 
- return 0;
+   return 0;
 }
 ```
 
@@ -86,22 +86,22 @@ Gegeben ist die main Funktion des Programms. Ergänzen Sie die enum Definition u
 
 ```
 int main (int argc, char *argv[]) {
-    
+
     int monat, jahr;
-     
+    
     //  Monat einlesen und Bereich ueberpruefen
     monat = gibIntWert("Monat", 1, 12);
     jahr  = gibIntWert("Jahr", 1600, 9999);
-	
+
     //  Ausgabe zum Test
-    printf("Monat: %d, Jahr: %d \n", monat, jahr);    
+    (void) printf("Monat: %d, Jahr: %d \n", monat, jahr);    
     
     //  Ausgabe zum Test (hier mit dem ternaeren Operator "?:")
-    printf("%d ist %s Schaltjahr\n", jahr, istSchaltjahr(jahr) ? "ein" : "kein");
+    (void) printf("%d ist %s Schaltjahr\n", jahr, istSchaltjahr(jahr) ? "ein" : "kein");
 
-	// Ausgabe
-	printf("Der Monat %02d-%d hat %d Tage.\n", monat, jahr, tageProMonat(jahr, monat));
-   
+    // Ausgabe
+    (void) printf("Der Monat %02d-%d hat %d Tage.\n", monat, jahr, tageProMonat(jahr, monat));
+
     return 0;
 }
 ```
@@ -122,7 +122,7 @@ Erweitern Sie das vorgegebene zweite Programm Gerüst an den bezeichneten Stelle
 Prüfen Sie die Umsetzung beider Teilaufgaben mittels make test.
 #### 3.2.1	Teilaufgabe Argumente Parsen und auf Korrektheit prüfen
 Das Argument stellt ein gültiges Datum unseres Gregorianischen Kalenders dar (d.h. ein Datum ab Donnerstag, den 15. Oktober 1582, mit der Gregorianischen Schaltjahr Regel).
-Wenn kein Argument gegeben ist oder wenn das eingegebene Datum nicht gültig ist, soll das Programm einem Hilfetext auf stderr ausgeben und mit EXIT_FAILURE Exit Code terminieren. Wenn ein gültiges Datum erkannt wurde terminiert das Programm mit Exit Code EXIT_SUCCESS.
+Wenn kein Argument gegeben ist oder wenn das eingegebene Datum nicht gültig ist, soll das Programm einen Hilfetext auf stderr ausgeben und mit EXIT_FAILURE Exit Code terminieren. Wenn ein gültiges Datum erkannt wurde terminiert das Programm mit Exit Code EXIT_SUCCESS.
 ##### 3.2.1.1 Argument Format
 Das Format des Kommando Zeilen Arguments soll yyyy-mm-dd sein, wobei yyyy für das vier-stellige Jahr, mm für einen 1-2-stelligen Monat (1…12) und dd für einen Tag des Monats, beginnend mit 01. Z.B. 2020-02-29.
 ##### 3.2.1.2 Korrektes Datum
