@@ -293,7 +293,7 @@ folgende Shell Command Line erfolgreich ausführen können und in
 Firefox die Abhängigkeiten der C-Files von den Include Files
 dargestellt wird.
 
-`make dep-clean dep && firefox src/*.png.`
+`make dep-clean dep && firefox ./src/*.png`
 
 
 ### 4.2 Resultate analysieren und erklären
