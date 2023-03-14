@@ -262,7 +262,7 @@ den Source Files zu den `png` Files ausführen.
 
 
 Prüfen Sie schliesslich die Umsetzung Aufgabe mittels `make dep-clean
-dep && firefox src/*.png.`
+dep && firefox ./src/*.png`
 
 
 ### 4.1 Neue Regeln hinzufügen
