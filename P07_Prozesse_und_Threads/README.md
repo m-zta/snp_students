@@ -198,12 +198,26 @@ Sie können diese Aufgabe bis dann aufsparen oder die verwendeten Funktionen sel
 
 
    ```
-2. Starten Sie `ProcA7.e` und danach nochmals mit `1` als erstem Argument. Dieser Argument Wert bewirkt, dass im Kindprozess ein ”Segmentation Error” erzeugt wird, also eine Speicherzugriffsverletzung. Welches Signal wird durch die Zugriffsverletzung an das Kind geschickt? Diese Information finden Sie im Manual mit `man 7 signal`. Schalten Sie nun core dump ein (siehe README) und starten Sie `ProcA7.e 1` erneut und analysieren Sie die Ausgabe.
-```
+2. Starten Sie `ProcA7.e` und danach nochmals mit `1` als erstem Argument. Dieser Argument Wert bewirkt, dass im Kindprozess ein ”Segmentation Error” erzeugt wird, also eine Speicherzugriffsverletzung. Welches Signal wird durch die Zugriffsverletzung an das Kind geschickt? Diese Information finden Sie im Manual mit `man 7 signal`.
+   ```
 
 
-```
-**Hinweis:** ein core Dump ist ein Abbild des Speichers z.B. zum Zeitpunkt, wenn das Programm abstürzt (wie oben mit der Speicher Zugriff Verletzung). Der Dump wird im File **core** abgelegt und kann mit dem **gdb** (GNU-Debugger) gelesen werden (siehe `README`). Tippen Sie nach dem Starten des Command Line UI des `gdb where` gefolgt von list ein, damit sie den Ort des Absturzes sehen. Mit `quit` verlassen Sie **gdb** wieder.
+
+   ```
+Bei einer Zugriffsverletzung kann das System so konfiguriert werden, dass ein core Dump erstellt wird. Ein core Dump ist ein Abbild des Speichers z.B. zum Zeitpunkt, wenn das Programm abstürzt (wie oben mit der Speicher Zugriff Verletzung). Der Dump wird üblicherweise File **core** abgelegt und kann mit dem **gdb** (GNU-Debugger) gelesen werden (siehe auch `README`).
+Schalten Sie nun core dump ein (siehe auch `README`) uns analysieren Sie die Ausgabe:
+   * `ulimit -c unlimited`
+   * `sudo /bin/bash -c 'echo core > /proc/sys/kernel/core_pattern'`
+   * `gdb ChildProcA7.e core.*`
+   * innerhalb von **gdb**
+      * `where`
+      * `list`
+Damit sie den Ort des Absturzes sehen. Mit `quit` verlassen Sie **gdb** wieder.
+Dokumentieren Sie hier Ihre Beobachtungen zu `ProcA7.e 1`:
+   ```
+
+
+   ```
 
 3. Wenn Sie `ProcA7.e 2` starten, sendet das Kind das Signal 30 an sich selbst. Was geschieht?
    ```
