@@ -250,12 +250,30 @@
 </pre></div>
 </div>
 </li>
-<li><p>Starten Sie <code class="docutils literal notranslate"><span class="pre">ProcA7.e</span></code> und danach nochmals mit <code class="docutils literal notranslate"><span class="pre">1</span></code> als erstem Argument. Dieser Argument Wert bewirkt, dass im Kindprozess ein ”Segmentation Error” erzeugt wird, also eine Speicherzugriffsverletzung. Welches Signal wird durch die Zugriffsverletzung an das Kind geschickt? Diese Information finden Sie im Manual mit <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">7</span> <span class="pre">signal</span></code>. Schalten Sie nun core dump ein (siehe README) und starten Sie <code class="docutils literal notranslate"><span class="pre">ProcA7.e</span> <span class="pre">1</span></code> erneut und analysieren Sie die Ausgabe.</p></li>
-</ol>
+<li><p>Starten Sie <code class="docutils literal notranslate"><span class="pre">ProcA7.e</span></code> und danach nochmals mit <code class="docutils literal notranslate"><span class="pre">1</span></code> als erstem Argument. Dieser Argument Wert bewirkt, dass im Kindprozess ein ”Segmentation Error” erzeugt wird, also eine Speicherzugriffsverletzung. Welches Signal wird durch die Zugriffsverletzung an das Kind geschickt? Diese Information finden Sie im Manual mit <code class="docutils literal notranslate"><span class="pre">man</span> <span class="pre">7</span> <span class="pre">signal</span></code>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
-<p><strong>Hinweis:</strong> ein core Dump ist ein Abbild des Speichers z.B. zum Zeitpunkt, wenn das Programm abstürzt (wie oben mit der Speicher Zugriff Verletzung). Der Dump wird im File <strong>core</strong> abgelegt und kann mit dem <strong>gdb</strong> (GNU-Debugger) gelesen werden (siehe <code class="docutils literal notranslate"><span class="pre">README</span></code>). Tippen Sie nach dem Starten des Command Line UI des <code class="docutils literal notranslate"><span class="pre">gdb</span> <span class="pre">where</span></code> gefolgt von list ein, damit sie den Ort des Absturzes sehen. Mit <code class="docutils literal notranslate"><span class="pre">quit</span></code> verlassen Sie <strong>gdb</strong> wieder.</p>
+</li>
+</ol>
+<p>Bei einer Zugriffsverletzung kann das System so konfiguriert werden, dass ein core Dump erstellt wird. Ein core Dump ist ein Abbild des Speichers z.B. zum Zeitpunkt, wenn das Programm abstürzt (wie oben mit der Speicher Zugriff Verletzung). Der Dump wird üblicherweise File <strong>core</strong> abgelegt und kann mit dem <strong>gdb</strong> (GNU-Debugger) gelesen werden (siehe auch <code class="docutils literal notranslate"><span class="pre">README</span></code>).
+Schalten Sie nun core dump ein (siehe auch <code class="docutils literal notranslate"><span class="pre">README</span></code>) uns analysieren Sie die Ausgabe:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ulimit</span> <span class="pre">-c</span> <span class="pre">unlimited</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">/bin/bash</span> <span class="pre">-c</span> <span class="pre">'echo</span> <span class="pre">core</span> <span class="pre">&gt;</span> <span class="pre">/proc/sys/kernel/core_pattern'</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gdb</span> <span class="pre">ChildProcA7.e</span> <span class="pre">core.*</span></code></p></li>
+<li><p>innerhalb von <strong>gdb</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">where</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">list</span></code>
+Damit sie den Ort des Absturzes sehen. Mit <code class="docutils literal notranslate"><span class="pre">quit</span></code> verlassen Sie <strong>gdb</strong> wieder.
+Dokumentieren Sie hier Ihre Beobachtungen zu <code class="docutils literal notranslate"><span class="pre">ProcA7.e</span> <span class="pre">1</span></code>:</p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 <ol class="arabic" start="3">
 <li><p>Wenn Sie <code class="docutils literal notranslate"><span class="pre">ProcA7.e</span> <span class="pre">2</span></code> starten, sendet das Kind das Signal 30 an sich selbst. Was geschieht?</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
