@@ -68,7 +68,7 @@ Erweitern Sie dazu das Programm um folgende Aspekte:
 * Funktion tageProMonat, welche die Anzahl Tage des gegebenen Monats und Jahres berechnet.
 
 Vorgaben:  
-* Die Funktion istSchaltjahr nimmt einen Integer (jahr) entgegen und gibt 1 im Falle eines Schaltjahres und 0 im andreren Fall zurück
+* Die Funktion istSchaltjahr nimmt einen Integer (jahr) entgegen und gibt 1 im Falle eines Schaltjahres und 0 im anderen Fall zurück
 * Die Funktion tageProMonat nimmt zwei Integer (monat und jahr) entgegen und gibt die Anzahl Tage als Integer zurück
 * Die Jahreszahl, welche den Funktionen übergeben wird, muss überprüft werden und grösser gleich 1599 und kleiner als 10000 sein
 * Der übergebene Monat muss grösser als 0 und kleiner als 13 sein. 
@@ -81,8 +81,8 @@ Die Regeln für die Schaltjahrberechnung:
 
 Gegeben ist die main Funktion des Programms. Ergänzen Sie die enum Definition und die fehlenden Funktionen:
 * gibIntWert: Die Funktion soll einen Int Wert zurückgeben. Der Bereich, wie auch Fehleingaben sollen berücksichtigt werden. (atoi und fgets sind hier hilfreich)
-* istSchaltjahr: Die Funktion gibt 1 im Falle eines Schaltjahrs und o im anderen Falle zurück.
-* tageProMonat: Die Funktion gibt den die Tage des Monats für das definierte Jahr zurück. Verwenden Sie die Switch-Anweisung , sowie den enum Datentypen
+* istSchaltjahr: Die Funktion gibt 1 im Falle eines Schaltjahrs und 0 im anderen Falle zurück.
+* tageProMonat: Die Funktion gibt die Anzahl Tage des Monats für das definierte Jahr zurück. Verwenden Sie die Switch-Anweisung , sowie den enum Datentyp.
 
 ```
 int main (int argc, char *argv[]) {
@@ -109,16 +109,14 @@ int main (int argc, char *argv[]) {
 Tipp: Angenommen Sie verwenden den enum month_t { JAN=1, FEB, MAR, APR, MAI, JUN, JUL, AUG, SEP, OKT, NOV, DEZ };
 Dann können Sie im Programm direkt die Konstanten verwenden:
 ```
-if (m == 2) ...		// schlecht lesbar
-if (monat == 2) ...	// besserer Variablenname 
-if (monat == FEB) ...	// am besten lesbar
+if (m == 2) ...		  // schlecht lesbar
+if (monat == 2) ...	  // besserer Variablenname 
+if (monat == FEB) ...  // am besten lesbar
 ```
 
-
-Als Abnahme müssen die Tests unverändert ohne Fehler ausgeführt werden (`make test`)
 ___
 ### 3.2 Aufgabe 2 Bestimmen des Wochentags
-Erweitern Sie das vorgegebene zweite Programm Gerüst an den bezeichneten Stellen so, dass das Programm von der Kommando Zeile ein Argument entgegennimmt, es auf Gültigkeit überprüft und schliesslich den Wochentag für das gegebene Datum berechnet und ausgibt.
+Erweitern Sie das vorgegebene zweite Programm-Gerüst an den bezeichneten Stellen so, dass das Programm von der Kommando-Zeile ein Argument entgegennimmt, es auf Gültigkeit überprüft und schliesslich den Wochentag für das gegebene Datum berechnet und ausgibt.
 Prüfen Sie die Umsetzung beider Teilaufgaben mittels make test.
 #### 3.2.1	Teilaufgabe Argumente Parsen und auf Korrektheit prüfen
 Das Argument stellt ein gültiges Datum unseres Gregorianischen Kalenders dar (d.h. ein Datum ab Donnerstag, den 15. Oktober 1582, mit der Gregorianischen Schaltjahr Regel).
@@ -155,12 +153,12 @@ Die Formel wird Georg Glaeser zugeschrieben, möglicherweise angelehnt an eine F
 
 Hier ist eine für C abgewandelte Variante davon.
 ```
-weekday = ((day + (13 * m - 1) / 5 + y + y / 4 + c / 4 - 2 * c) % 7 + 7) % 7
-alle Zahlen sind int Werte und alles basiert auf int-Arithmetik
-m = 1 + (month + 9) % 12
-a = year - 1 (für month < Mar), ansonsten year 
-y = a % 100
-c = a / 100
+weekday = ((day + (13 * m - 1) / 5 + y + y / 4 + c / 4 - 2 * c) % 7 + 7) % 7;
+// alle Zahlen sind int Werte und alles basiert auf int-Arithmetik
+int m = 1 + (month + 9) % 12;
+int a; if (m < MAR) ? a = year - 1 : a = year; 
+int y = a % 100;
+int c = a / 100;
 ```
 Erweitern sie das Programm so, dass vor dem erfolgreichen Terminieren des Programms folgende Zeile (inklusive Zeilenumbruch) ausgegeben wird: yyyy-mm-dd is a Ddd, wobei yyyy für das Jahr, mm für die Nummer des Monats (01…12) und dd für den Tag im Monat (01…). Z.B. 2020-02-29 is a Sat.
 Vorgaben an die Umsetzung
