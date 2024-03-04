@@ -36,7 +36,7 @@ Der Datentyp enum wird verwendet um die Lesbarkeit von Programmen zu erhöhen:
 
 Beispiel eines enum: 
 ```
-enum Ampeln = {rot =1, gelb, gruen};
+enum Ampeln {rot =1, gelb, gruen};
 
 int main(void) {
    Ampeln ampel1;
