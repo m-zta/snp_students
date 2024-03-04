@@ -108,7 +108,7 @@ Erweitern Sie dazu das Programm um folgende Aspekte:</p>
 </ul>
 <p>Vorgaben:</p>
 <ul class="simple">
-<li><p>Die Funktion istSchaltjahr nimmt einen Integer (jahr) entgegen und gibt 1 im Falle eines Schaltjahres und 0 im andreren Fall zurück</p></li>
+<li><p>Die Funktion istSchaltjahr nimmt einen Integer (jahr) entgegen und gibt 1 im Falle eines Schaltjahres und 0 im anderen Fall zurück</p></li>
 <li><p>Die Funktion tageProMonat nimmt zwei Integer (monat und jahr) entgegen und gibt die Anzahl Tage als Integer zurück</p></li>
 <li><p>Die Jahreszahl, welche den Funktionen übergeben wird, muss überprüft werden und grösser gleich 1599 und kleiner als 10000 sein</p></li>
 <li><p>Der übergebene Monat muss grösser als 0 und kleiner als 13 sein.</p></li>
@@ -123,8 +123,8 @@ Erweitern Sie dazu das Programm um folgende Aspekte:</p>
 <p>Gegeben ist die main Funktion des Programms. Ergänzen Sie die enum Definition und die fehlenden Funktionen:</p>
 <ul class="simple">
 <li><p>gibIntWert: Die Funktion soll einen Int Wert zurückgeben. Der Bereich, wie auch Fehleingaben sollen berücksichtigt werden. (atoi und fgets sind hier hilfreich)</p></li>
-<li><p>istSchaltjahr: Die Funktion gibt 1 im Falle eines Schaltjahrs und o im anderen Falle zurück.</p></li>
-<li><p>tageProMonat: Die Funktion gibt den die Tage des Monats für das definierte Jahr zurück. Verwenden Sie die Switch-Anweisung , sowie den enum Datentypen</p></li>
+<li><p>istSchaltjahr: Die Funktion gibt 1 im Falle eines Schaltjahrs und 0 im anderen Falle zurück.</p></li>
+<li><p>tageProMonat: Die Funktion gibt die Anzahl Tage des Monats für das definierte Jahr zurück. Verwenden Sie die Switch-Anweisung , sowie den enum Datentyp.</p></li>
 </ul>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>int main (int argc, char *argv[]) {
 
@@ -149,17 +149,16 @@ Erweitern Sie dazu das Programm um folgende Aspekte:</p>
 </div>
 <p>Tipp: Angenommen Sie verwenden den enum month_t { JAN=1, FEB, MAR, APR, MAI, JUN, JUL, AUG, SEP, OKT, NOV, DEZ };
 Dann können Sie im Programm direkt die Konstanten verwenden:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">m</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span> <span class="o">...</span>		<span class="o">//</span> <span class="n">schlecht</span> <span class="n">lesbar</span>
-<span class="k">if</span> <span class="p">(</span><span class="n">monat</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span> <span class="o">...</span>	<span class="o">//</span> <span class="n">besserer</span> <span class="n">Variablenname</span> 
-<span class="k">if</span> <span class="p">(</span><span class="n">monat</span> <span class="o">==</span> <span class="n">FEB</span><span class="p">)</span> <span class="o">...</span>	<span class="o">//</span> <span class="n">am</span> <span class="n">besten</span> <span class="n">lesbar</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">m</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span> <span class="o">...</span>		  <span class="o">//</span> <span class="n">schlecht</span> <span class="n">lesbar</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">monat</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span> <span class="o">...</span>	  <span class="o">//</span> <span class="n">besserer</span> <span class="n">Variablenname</span> 
+<span class="k">if</span> <span class="p">(</span><span class="n">monat</span> <span class="o">==</span> <span class="n">FEB</span><span class="p">)</span> <span class="o">...</span>  <span class="o">//</span> <span class="n">am</span> <span class="n">besten</span> <span class="n">lesbar</span>
 </pre></div>
 </div>
-<p>Als Abnahme müssen die Tests unverändert ohne Fehler ausgeführt werden (<code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">test</span></code>)</p>
 </section>
 <hr class="docutils" />
 <section id="aufgabe-2-bestimmen-des-wochentags">
 <h3>3.2 Aufgabe 2 Bestimmen des Wochentags<a class="headerlink" href="#aufgabe-2-bestimmen-des-wochentags" title="Permalink to this headline">¶</a></h3>
-<p>Erweitern Sie das vorgegebene zweite Programm Gerüst an den bezeichneten Stellen so, dass das Programm von der Kommando Zeile ein Argument entgegennimmt, es auf Gültigkeit überprüft und schliesslich den Wochentag für das gegebene Datum berechnet und ausgibt.
+<p>Erweitern Sie das vorgegebene zweite Programm-Gerüst an den bezeichneten Stellen so, dass das Programm von der Kommando-Zeile ein Argument entgegennimmt, es auf Gültigkeit überprüft und schliesslich den Wochentag für das gegebene Datum berechnet und ausgibt.
 Prüfen Sie die Umsetzung beider Teilaufgaben mittels make test.</p>
 <section id="teilaufgabe-argumente-parsen-und-auf-korrektheit-prufen">
 <h4>3.2.1	Teilaufgabe Argumente Parsen und auf Korrektheit prüfen<a class="headerlink" href="#teilaufgabe-argumente-parsen-und-auf-korrektheit-prufen" title="Permalink to this headline">¶</a></h4>
@@ -206,12 +205,12 @@ Die Formel wird Georg Glaeser zugeschrieben, möglicherweise angelehnt an eine F
 <p><img alt="" src="../_images/Wochentagsberechnung.jpg" /></p>
 <p>(Quelle: <a class="reference external" href="https://de.wikipedia.org/wiki/Wochentagsberechnung">https://de.wikipedia.org/wiki/Wochentagsberechnung</a>)</p>
 <p>Hier ist eine für C abgewandelte Variante davon.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">weekday</span> <span class="o">=</span> <span class="p">((</span><span class="n">day</span> <span class="o">+</span> <span class="p">(</span><span class="mi">13</span> <span class="o">*</span> <span class="n">m</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">5</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">y</span> <span class="o">/</span> <span class="mi">4</span> <span class="o">+</span> <span class="n">c</span> <span class="o">/</span> <span class="mi">4</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">c</span><span class="p">)</span> <span class="o">%</span> <span class="mi">7</span> <span class="o">+</span> <span class="mi">7</span><span class="p">)</span> <span class="o">%</span> <span class="mi">7</span>
-<span class="n">alle</span> <span class="n">Zahlen</span> <span class="n">sind</span> <span class="nb">int</span> <span class="n">Werte</span> <span class="n">und</span> <span class="n">alles</span> <span class="n">basiert</span> <span class="n">auf</span> <span class="nb">int</span><span class="o">-</span><span class="n">Arithmetik</span>
-<span class="n">m</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="n">month</span> <span class="o">+</span> <span class="mi">9</span><span class="p">)</span> <span class="o">%</span> <span class="mi">12</span>
-<span class="n">a</span> <span class="o">=</span> <span class="n">year</span> <span class="o">-</span> <span class="mi">1</span> <span class="p">(</span><span class="n">für</span> <span class="n">month</span> <span class="o">&lt;</span> <span class="n">Mar</span><span class="p">),</span> <span class="n">ansonsten</span> <span class="n">year</span> 
-<span class="n">y</span> <span class="o">=</span> <span class="n">a</span> <span class="o">%</span> <span class="mi">100</span>
-<span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">/</span> <span class="mi">100</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>weekday = ((day + (13 * m - 1) / 5 + y + y / 4 + c / 4 - 2 * c) % 7 + 7) % 7;
+// alle Zahlen sind int Werte und alles basiert auf int-Arithmetik
+int m = 1 + (month + 9) % 12;
+int a; if (m &lt; MAR) ? a = year - 1 : a = year; 
+int y = a % 100;
+int c = a / 100;
 </pre></div>
 </div>
 <p>Erweitern sie das Programm so, dass vor dem erfolgreichen Terminieren des Programms folgende Zeile (inklusive Zeilenumbruch) ausgegeben wird: yyyy-mm-dd is a Ddd, wobei yyyy für das Jahr, mm für die Nummer des Monats (01…12) und dd für den Tag im Monat (01…). Z.B. 2020-02-29 is a Sat.
