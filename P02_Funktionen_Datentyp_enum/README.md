@@ -153,12 +153,12 @@ Die Formel wird Georg Glaeser zugeschrieben, möglicherweise angelehnt an eine F
 
 Hier ist eine für C abgewandelte Variante davon.
 ```
-weekday = ((day + (13 * m - 1) / 5 + y + y / 4 + c / 4 - 2 * c) % 7 + 7) % 7;
 // alle Zahlen sind int Werte und alles basiert auf int-Arithmetik
-int m = 1 + (month + 9) % 12;
-int a; if (m < MAR) ? a = year - 1 : a = year; 
+int m = 1 + (date.month + 9) % 12;
+int a = date.month < MAR ? date.year - 1: date.year; 
 int y = a % 100;
 int c = a / 100;
+weekday = ((date.day + (13 * m - 1) / 5 + y + y / 4 + c / 4 - 2 * c) % 7 + 7) % 7;
 ```
 Erweitern sie das Programm so, dass vor dem erfolgreichen Terminieren des Programms folgende Zeile (inklusive Zeilenumbruch) ausgegeben wird: yyyy-mm-dd is a Ddd, wobei yyyy für das Jahr, mm für die Nummer des Monats (01…12) und dd für den Tag im Monat (01…). Z.B. 2020-02-29 is a Sat.
 Vorgaben an die Umsetzung
