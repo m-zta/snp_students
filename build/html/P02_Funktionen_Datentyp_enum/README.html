@@ -205,12 +205,12 @@ Die Formel wird Georg Glaeser zugeschrieben, möglicherweise angelehnt an eine F
 <p><img alt="" src="../_images/Wochentagsberechnung.jpg" /></p>
 <p>(Quelle: <a class="reference external" href="https://de.wikipedia.org/wiki/Wochentagsberechnung">https://de.wikipedia.org/wiki/Wochentagsberechnung</a>)</p>
 <p>Hier ist eine für C abgewandelte Variante davon.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>weekday = ((day + (13 * m - 1) / 5 + y + y / 4 + c / 4 - 2 * c) % 7 + 7) % 7;
-// alle Zahlen sind int Werte und alles basiert auf int-Arithmetik
-int m = 1 + (month + 9) % 12;
-int a; if (m &lt; MAR) ? a = year - 1 : a = year; 
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>// alle Zahlen sind int Werte und alles basiert auf int-Arithmetik
+int m = 1 + (date.month + 9) % 12;
+int a = date.month &lt; MAR ? date.year - 1: date.year; 
 int y = a % 100;
 int c = a / 100;
+weekday = ((date.day + (13 * m - 1) / 5 + y + y / 4 + c / 4 - 2 * c) % 7 + 7) % 7;
 </pre></div>
 </div>
 <p>Erweitern sie das Programm so, dass vor dem erfolgreichen Terminieren des Programms folgende Zeile (inklusive Zeilenumbruch) ausgegeben wird: yyyy-mm-dd is a Ddd, wobei yyyy für das Jahr, mm für die Nummer des Monats (01…12) und dd für den Tag im Monat (01…). Z.B. 2020-02-29 is a Sat.
