@@ -1,0 +1,17 @@
+BasedOnStyle: LLVM
+IndentWidth: 4
+TabWidth: 4
+UseTab: Never
+BreakBeforeBraces: Attach
+AllowShortIfStatementsOnASingleLine: false
+ColumnLimit: 80
+PointerAlignment: Left
+SpacesInParentheses: false
+SpaceAfterCStyleCast: true
+SortIncludes: true
+IncludeBlocks: Regroup
+AlignConsecutiveDeclarations: true
+AlignConsecutiveAssignments: true
+AlignTrailingComments: true
+CompactNamespaces: false
+IndentCaseLabels: true
