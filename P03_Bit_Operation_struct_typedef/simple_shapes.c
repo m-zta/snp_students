@@ -14,6 +14,18 @@ Students: Create a new type "Graphic" that can store:
 - size
 - color
 */
+// NOTE: Done
+
+typedef enum {
+    OVAL,
+    RECTANGLE
+} Shape;
+
+typedef struct {
+    Shape        shape;
+    unsigned int size;
+    char*        color;
+} Graphic;
 
 void paint(Graphic graphic) {
     double radius = graphic.size / 2.0;
@@ -48,23 +60,43 @@ int main() {
         printf("Geben Sie die gewünschte Form an [OVAL=0 | RECTANGLE=1]:");
         scanf("%d", &input);
         // Students: store the input in graphic
+        // NOTE: DONE
+        graphic.shape = (Shape) input;
 
         printf("Geben Sie die gewünschte Grösse an:");
         scanf("%u", &input);
         // Students: store the input in graphic
+        // NOTE: DONE
+        graphic.size = (unsigned int) input;
 
-        printf(
-            "Geben Sie die gewünschte Farb an [RED=0 | GREEN=1 | YELLOW=2]:");
+        printf("Geben Sie die Farb an [RED=0 | GREEN=1 | YELLOW=2]:");
         scanf("%d", &input);
         // Students: store the input in graphic
+        // NOTE: DONE
+        switch (input) {
+            case 0:
+                graphic.color = RED;
+                break;
+            case 1:
+                graphic.color = GRN;
+                break;
+            case 2:
+                graphic.color = YEL;
+                break;
+            default:
+                graphic.color = WHT;
+                break;
+        }
 
         paint(graphic);
 
         while (getchar() != '\n')
             ; // empty buffer
+
         printf("\nMöchten sie weiter machen oder abbrechen? [(n)ext|(q)uit] ");
     } while (getchar() == 'n');
 
     printf("Byebye..\n");
+
     return EXIT_SUCCESS;
 }

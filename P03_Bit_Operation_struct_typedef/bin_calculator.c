@@ -134,6 +134,7 @@ int main() {
         operand2 = parse_operand(operand2_str);
 
         // Students: Create an expression
+        // NOTE: Done
         Expression expression = {operand1, operand2, operation};
 
         unsigned int result = bit_operation(expression);
