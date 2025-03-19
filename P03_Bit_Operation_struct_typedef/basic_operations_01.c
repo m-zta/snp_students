@@ -3,7 +3,7 @@
 
 // Helper function from bin_calculator.c
 void print_binary(unsigned int value) {
-    for (int i = 8 - 1; i >= 0; i--) {
+    for (int i = 16 - 1; i >= 0; i--) {
         printf("%d", (value >> i) & 1);
 
         if (i % 8 == 0) {
@@ -39,7 +39,6 @@ int main() {
     bit    = 0;
     number = number ^ (1 << bit);
     printf("Toggling bit %d, number = 0x%02X\n", bit, number);
-    print_binary(number);
 
     return EXIT_SUCCESS;
 }
