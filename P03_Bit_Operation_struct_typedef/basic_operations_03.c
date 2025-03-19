@@ -19,6 +19,8 @@ int main() {
     // with the '|' operator, which is exactly what we need for conversion to
     // upper/lower case.
 
+    printf("Original word: %s\n", word);
+
     while (wordptr < &word[7]) {
         printf("UPPERCASE: %c\n",
                *wordptr & '_'); // converts the char into uppercase regardless

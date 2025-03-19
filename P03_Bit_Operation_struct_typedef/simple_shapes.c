@@ -14,7 +14,7 @@ Students: Create a new type "Graphic" that can store:
 - size
 - color
 */
-// NOTE: Done
+// DONE
 
 typedef enum {
     OVAL,
@@ -57,22 +57,22 @@ int main() {
     Graphic graphic;
 
     do {
-        printf("Geben Sie die gewünschte Form an [OVAL=0 | RECTANGLE=1]:");
+        printf("Geben Sie die gewünschte Form an [OVAL=0 | RECTANGLE=1]: ");
         scanf("%d", &input);
         // Students: store the input in graphic
-        // NOTE: DONE
+        // DONE
         graphic.shape = (Shape) input;
 
-        printf("Geben Sie die gewünschte Grösse an:");
+        printf("Geben Sie die gewünschte Grösse an: ");
         scanf("%u", &input);
         // Students: store the input in graphic
-        // NOTE: DONE
+        // DONE
         graphic.size = (unsigned int) input;
 
-        printf("Geben Sie die Farb an [RED=0 | GREEN=1 | YELLOW=2]:");
+        printf("Geben Sie die Farb an [RED=0 | GREEN=1 | YELLOW=2]: ");
         scanf("%d", &input);
         // Students: store the input in graphic
-        // NOTE: DONE
+        // DONE
         switch (input) {
             case 0:
                 graphic.color = RED;

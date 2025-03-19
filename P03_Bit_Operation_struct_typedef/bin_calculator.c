@@ -8,7 +8,7 @@ typedef struct {
     Students: The Expression struct should hold the two operands and
     the operation (use a char for the operation)
     */
-    // DONE 
+    // DONE
 
     int  first;
     int  second;
@@ -23,7 +23,6 @@ unsigned int parse_operand(char operand_str[]) {
     unsigned int operand;
 
     if (operand_str[0] == '0' && operand_str[1] == 'x') {
-        // sscanf reads from a string buffer instead of stdin
         sscanf(&operand_str[2], "%x", &operand);
     } else if (operand_str[0] == '0') {
         sscanf(&operand_str[1], "%o", &operand);
@@ -38,9 +37,12 @@ void print_binary(unsigned int value) {
     // Students: Print a single number as a binary string
     // DONE
 
+    // Example: 00000000'00000000'00000000'01001100
+    // Push the bits to the right and mask with 1 to get the last bit
     for (int i = bits_per_int() - 1; i >= 0; i--) {
         printf("%d", (value >> i) & 1);
 
+        // Print a ' after every 8 bits
         if (i % 8 == 0) {
             printf("'");
         }
@@ -59,7 +61,7 @@ void print_bit_operation_bin(Expression expression, unsigned int result) {
     -----------------------------------
     00000000'00000000'00000000'00000011
     */
-    // DONE 
+    // DONE
 
     printf("Bin:\n");
     print_binary(expression.first);
@@ -77,7 +79,7 @@ void print_bit_operation_hex(Expression expression, unsigned int result) {
     Hex:
     0x0c ^ 0x0f = 0x03
     */
-    // DONE 
+    // DONE
 
     printf("Hex:\n");
     printf("0x%02x %c 0x%02x = 0x%02x\n", expression.first, expression.operator,
@@ -93,7 +95,7 @@ void print_bit_operation_dec(Expression expression, unsigned int result) {
     Dec:
     12 ^ 15 = 3
     */
-    // DONE 
+    // DONE
 
     printf("Dec:\n");
     printf("%d %c %d = %d\n", expression.first, expression.operator,
@@ -104,7 +106,7 @@ void print_bit_operation_dec(Expression expression, unsigned int result) {
 
 unsigned int bit_operation(Expression expression) {
     // Students: Do the actual bit operation and return the result
-    // DONE 
+    // DONE
 
     switch (expression.operator) {
         case '&':
@@ -134,7 +136,7 @@ int main() {
         operand2 = parse_operand(operand2_str);
 
         // Students: Create an expression
-        // DONE 
+        // DONE
         Expression expression = {operand1, operand2, operation};
 
         unsigned int result = bit_operation(expression);
