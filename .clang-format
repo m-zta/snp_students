@@ -5,6 +5,8 @@ UseTab: Never
 BreakBeforeBraces: Attach
 AllowShortIfStatementsOnASingleLine: false
 AllowShortFunctionsOnASingleLine: None
+AllowShortEnumsOnASingleLine: false
+AllowShortStructsOnASingleLine: false
 ColumnLimit: 80
 PointerAlignment: Left
 SpacesInParentheses: false
