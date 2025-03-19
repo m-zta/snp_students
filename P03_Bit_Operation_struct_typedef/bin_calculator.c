@@ -8,7 +8,7 @@ typedef struct {
     Students: The Expression struct should hold the two operands and
     the operation (use a char for the operation)
     */
-    // NOTE: DONE
+    // DONE 
 
     int  first;
     int  second;
@@ -36,7 +36,7 @@ unsigned int parse_operand(char operand_str[]) {
 
 void print_binary(unsigned int value) {
     // Students: Print a single number as a binary string
-    // NOTE: Done
+    // DONE
 
     for (int i = bits_per_int() - 1; i >= 0; i--) {
         printf("%d", (value >> i) & 1);
@@ -59,7 +59,7 @@ void print_bit_operation_bin(Expression expression, unsigned int result) {
     -----------------------------------
     00000000'00000000'00000000'00000011
     */
-    // NOTE: Done
+    // DONE 
 
     printf("Bin:\n");
     print_binary(expression.first);
@@ -77,7 +77,7 @@ void print_bit_operation_hex(Expression expression, unsigned int result) {
     Hex:
     0x0c ^ 0x0f = 0x03
     */
-    // NOTE: Done
+    // DONE 
 
     printf("Hex:\n");
     printf("0x%02x %c 0x%02x = 0x%02x\n", expression.first, expression.operator,
@@ -93,7 +93,7 @@ void print_bit_operation_dec(Expression expression, unsigned int result) {
     Dec:
     12 ^ 15 = 3
     */
-    // NOTE: Done
+    // DONE 
 
     printf("Dec:\n");
     printf("%d %c %d = %d\n", expression.first, expression.operator,
@@ -104,7 +104,7 @@ void print_bit_operation_dec(Expression expression, unsigned int result) {
 
 unsigned int bit_operation(Expression expression) {
     // Students: Do the actual bit operation and return the result
-    // NOTE: Done
+    // DONE 
 
     switch (expression.operator) {
         case '&':
@@ -134,7 +134,7 @@ int main() {
         operand2 = parse_operand(operand2_str);
 
         // Students: Create an expression
-        // NOTE: Done
+        // DONE 
         Expression expression = {operand1, operand2, operation};
 
         unsigned int result = bit_operation(expression);
