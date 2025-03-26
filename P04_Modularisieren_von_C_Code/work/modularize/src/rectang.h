@@ -9,8 +9,20 @@
  */
 /**
  * @file
- * @brief Lab implementation
+ * @brief Interface for rectangle validation functions
  */
-// begin students to add code for task 4.1
 
-// end students to add code
+#ifndef RECTANG_H_
+#define RECTANG_H_
+
+/**
+ * @brief Checks if a triangle with given sides is rectangular
+ *
+ * @param a First side of the triangle
+ * @param b Second side of the triangle
+ * @param c Third side of the triangle
+ * @return 1 if triangle is rectangular, 0 otherwise
+ */
+int isRectangular(int a, int b, int c);
+
+#endif // RECTANG_H_
