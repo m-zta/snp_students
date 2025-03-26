@@ -23,7 +23,7 @@ FULLTARGET    := $(CURDIR)/$(TARGET)
 CC            = gcc
 CFLAGS        = -std=c99 -Wall -pedantic -g
 CPPFLAGS      = -MD -Isrc -Itests -I$(TSTINCDIR) -DTARGET=$(FULLTARGET)
-LDFLAGS       = -static
+LDFLAGS       = #-static not needed on macOS
 
 # targets which get always visited (without checking any up-to-date state)
 .PHONY: default clean test doc install mkdir
