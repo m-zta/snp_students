@@ -1,4 +1,6 @@
-SNP_SHARED_MAKEFILE := $(if $(SNP_SHARED_MAKEFILE),$(SNP_SHARED_MAKEFILE),~/snp/shared.mk)
+# Like in task 4.1, we need to use the shared.mk file from the root directory.
+# God knows why the prof imposed a ~/snp/ directory here while the file
+SNP_SHARED_MAKEFILE := $(if $(SNP_SHARED_MAKEFILE),$(SNP_SHARED_MAKEFILE),../../../shared.mk)
 
 TARGET     := bin/dep2dot
 # Add all additional c-files to the SOURCES variable
@@ -12,6 +14,7 @@ include $(SNP_SHARED_MAKEFILE)
 
 # DEPFILES :=  ... define a list of png file names: %.c -> %.c.png
 # BEGIN-STUDENTS-TO-ADD-CODE
+DEPFILES := $(wildcard src/*.c.dep)
 
 
 # END-STUDENTS-TO-ADD-CODE
