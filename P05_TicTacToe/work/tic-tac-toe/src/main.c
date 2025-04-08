@@ -1,4 +1,4 @@
- /* ----------------------------------------------------------------------------
+/* ----------------------------------------------------------------------------
  * --  _____       ______  _____                                              -
  * -- |_   _|     |  ____|/ ____|                                             -
  * --   | |  _ __ | |__  | (___    Institute of Embedded Systems              -
@@ -11,12 +11,12 @@
  * @file
  * @brief Lab P04 dep2dot
  */
+#include "control.h"
+#include "model.h"
+#include "view.h"
+
 #include <stdio.h>
 #include <stdlib.h>
-
-#include "view.h"
-#include "model.h"
-#include "control.h"
 
 /**
  * @brief   main function
@@ -24,16 +24,15 @@
  * @param   argv [in] program name plus command line arguments
  * @returns returns success if valid date is given, failure otherwise
  */
-int main(int argc, const char *argv[])
-{
-    view_t view;
+int main(int argc, const char* argv[]) {
+    view_t    view;
     control_t control;
-    model_t model;
-    
+    model_t   model;
+
     model_init(&model);
     control_init(&control, &model);
     view_init(&view, &control);
     view_run(&view);
-    
+
     return EXIT_SUCCESS;
 }
