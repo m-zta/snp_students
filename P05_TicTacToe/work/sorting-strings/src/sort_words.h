@@ -2,9 +2,9 @@
 #define SORT_WORDS_H_
 
 // --- Constants ---
-#define MAX_WORDS 10       // Maximum number of unique words to store
-#define MAX_WORD_LENGTH 20 // Maximum length of each word
-#define TERMINATOR "ZZZ"   // Input termination string
+#define MAX_WORDS 10
+#define MAX_WORD_LENGTH 20
+#define TERMINATOR "ZZZ"
 
 // --- Function Prototypes ---
 

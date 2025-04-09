@@ -1,11 +1,10 @@
-#include "sort_words.h" // Include the header for our sorting module
+#include "sort_words.h"
 
-#include <stdio.h>  // For printf
-#include <stdlib.h> // For EXIT_SUCCESS
+#include <stdio.h>
+#include <stdlib.h>
 
 // --- Main Function ---
-int main(void) { // <<< Changed () to (void)
-    // Use constants defined in sort_words.h
+int main(void) {
     char unique_words[MAX_WORDS][MAX_WORD_LENGTH + 1];
     int  unique_word_count = 0;
 
@@ -13,7 +12,7 @@ int main(void) { // <<< Changed () to (void)
            MAX_WORD_LENGTH);
     printf("Enter '%s' to finish early.\n", TERMINATOR);
 
-    // Call functions defined in sort_words.c (via sort_words.h)
+    // Read words from user input
     read_words(unique_words, &unique_word_count);
 
     if (unique_word_count > 0) {
