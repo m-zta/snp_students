@@ -7,12 +7,12 @@ SOURCES    := src/main.c $(MODULES)
 TSTSOURCES := tests/tests.c $(MODULES)
 
 # LDFLAGS für CUnit Library Pfad (kann wahrscheinlich hier bleiben)
-LDFLAGS += -L/opt/homebrew/lib
+# LDFLAGS += -L/opt/homebrew/lib
 
 # shared.mk einbinden
 include $(SNP_SHARED_MAKEFILE)
 
 # Füge CUnit Include Pfad HIER hinzu (NACH dem include)!
-CPPFLAGS += -I/opt/homebrew/Cellar/cunit/2.1-3/include
+# CPPFLAGS += -I/opt/homebrew/Cellar/cunit/2.1-3/include
 
 # CFLAGS  += -Werror
