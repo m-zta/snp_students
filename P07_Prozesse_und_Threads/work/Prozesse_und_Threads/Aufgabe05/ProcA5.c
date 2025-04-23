@@ -20,7 +20,7 @@
 
 int main(void) {
 
-    pid_t  pid, id;
+    pid_t  pid, id = 0;
     char   buf[64];
     int    i;
 

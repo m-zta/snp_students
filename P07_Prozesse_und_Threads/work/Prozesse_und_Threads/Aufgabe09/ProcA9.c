@@ -50,6 +50,10 @@ void *ThreadF(void *letter) {
     }
     printf("\n");
     fflush(stdout);
+
+    // Endless loop 
+    while (1) {};
+
     pthread_exit(0);
 }
 
@@ -97,8 +101,8 @@ int main(void) {
     pthr = pthread_create(&thread2, NULL, ThreadF, (void *)&letter2);
     if (pthr != 0) perror("Could not create thread");
 
-    pthread_join(thread1, NULL);
-    pthread_join(thread2, NULL);
+    // pthread_join(thread1, NULL);
+    // pthread_join(thread2, NULL);
   
     printf("\n... nach Threads\n");
         for (i = 0; i < ARRAY_SIZE; i++) {

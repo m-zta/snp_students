@@ -13,6 +13,7 @@
 #include <stdio.h>
 #include <errno.h>
 #include <stdlib.h>
+#include <signal.h>
 
 //***************************************************************************
 // Function: main(), parameter: none
