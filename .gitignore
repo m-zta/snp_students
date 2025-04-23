@@ -43,6 +43,10 @@ cmake_install.cmake
 Makefile
 /compile_commands.json
 
+# Binary files
+*.bin
+/bin
+
 # Logs and databases
 *.log
 *.sql
