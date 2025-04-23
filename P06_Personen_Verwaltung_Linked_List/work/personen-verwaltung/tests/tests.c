@@ -1,12 +1,3 @@
-/* ----------------------------------------------------------------------------
- * --  _____       ______  _____                                              -
- * -- |_   _|     |  ____|/ ____|                                             -
- * --   | |  _ __ | |__  | (___    Institute of Embedded Systems              -
- * --   | | | '_ \|  __|  \___ \   Zuercher Hochschule Winterthur             -
- * --  _| |_| | | | |____ ____) |  (University of Applied Sciences)           -
- * -- |_____|_| |_|______|_____/   8401 Winterthur, Switzerland               -
- * ----------------------------------------------------------------------------
- */
 /**
  * @file
  * @brief Test suite for the given package.
@@ -176,7 +167,8 @@ static void test_list_remove(void) {
     CU_ASSERT_EQUAL(result, 0);
     // Liste: Anker -> p1 (Huber) -> p3 (Schmidt) -> Anker
     // CU_ASSERT_PTR_EQUAL(
-    //     anchor.next, anchor.next->next->next); // p1->next sollte jetzt p3 sein
+    //     anchor.next, anchor.next->next->next); // p1->next sollte jetzt p3
+    //     sein
     CU_ASSERT_EQUAL(person_compare(&anchor.next->content, &p1), 0);
     CU_ASSERT_EQUAL(person_compare(&anchor.next->next->content, &p3), 0);
 

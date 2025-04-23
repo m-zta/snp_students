@@ -1,12 +1,3 @@
-/* ----------------------------------------------------------------------------
- * --  _____       ______  _____                                              -
- * -- |_   _|     |  ____|/ ____|                                             -
- * --   | |  _ __ | |__  | (___    Institute of Embedded Systems              -
- * --   | | | '_ \|  __|  \___ \   Zuercher Hochschule Winterthur             -
- * --  _| |_| | | | |____ ____) |  (University of Applied Sciences)           -
- * -- |_____|_| |_|______|_____/   8401 Winterthur, Switzerland               -
- * ----------------------------------------------------------------------------
- */
 /**
  * @file
  * @brief Lab implementation: Person structure and functions
@@ -106,7 +97,7 @@ int person_read(person_t* person) {
 
     // Alter konvertieren und validieren
     errno    = 0; // errno zurücksetzen vor strtoul
-    temp_age = strtoul(age_buffer, &endptr, 10);
+    temp_age = strtoul(age_buffer, &endptr, 10); // string -> unsigned long
 
     // Prüfen auf Konvertierungsfehler
     if (errno != 0 || *endptr != '\0') {

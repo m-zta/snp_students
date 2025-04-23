@@ -1,12 +1,3 @@
-/* ----------------------------------------------------------------------------
- * --  _____       ______  _____                                              -
- * -- |_   _|     |  ____|/ ____|                                             -
- * --   | |  _ __ | |__  | (___    Institute of Embedded Systems              -
- * --   | | | '_ \|  __|  \___ \   Zuercher Hochschule Winterthur             -
- * --  _| |_| | | | |____ ____) |  (University of Applied Sciences)           -
- * -- |_____|_| |_|______|_____/   8401 Winterthur, Switzerland               -
- * ----------------------------------------------------------------------------
- */
 /**
  * @file
  * @brief Lab implementation: Linked list operations
@@ -78,6 +69,9 @@ node_t* list_insert(node_t* anchor, const person_t* person) {
     return new_node; // Erfolg, gib Zeiger auf neuen Knoten zurück
 }
 
+// TODO: Generell im code: Keine Zahlen "Magic Numbers", sondern oben ein
+// #define
+
 /**
  * @brief Entfernt eine Person aus der Liste.
  */
@@ -130,6 +124,9 @@ void list_show(const node_t* anchor) {
     }
 }
 
+// TODO: Grundsätzlich zum Fehler verhindern: Bei 'free' den pointer auf Null
+// setzen
+
 /**
  * @brief Entfernt alle Personenknoten aus der Liste und gibt deren Speicher
  * frei.
@@ -143,10 +140,11 @@ void list_clear(node_t* anchor) {
     node_t* node_to_delete = NULL;
 
     while (current != anchor) {
-        node_to_delete = current; // Knoten merken
-        current = current->next;  // Zum nächsten Knoten gehen *bevor* der
-                                  // aktuelle gelöscht wird
-        free(node_to_delete);     // Gemerkten Knoten löschen
+        node_to_delete = current;       // Knoten merken
+        current        = current->next; // Zum nächsten Knoten gehen *bevor* der
+                                        // aktuelle gelöscht wird
+        free(node_to_delete);           // Gemerkten Knoten löschen
+        node_to_delete = NULL;          // Besser es knallt im Fehlerfall
     }
 
     // Liste ist nun leer, Anker zurücksetzen

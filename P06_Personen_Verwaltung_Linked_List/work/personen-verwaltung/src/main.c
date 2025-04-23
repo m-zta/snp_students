@@ -42,8 +42,9 @@ int main(int argc, char* argv[]) {
     list_init(&anchor); // Liste initialisieren (Anker zeigt auf sich selbst)
 
     char choice;
-    person_t
-        current_person; // Variable für aktuell einzulesende/zu löschende Person
+
+    // Variable für die aktuell einzulesende/zu löschende Person
+    person_t current_person;
 
     printf("Personenverwaltung V1.0\n");
 
