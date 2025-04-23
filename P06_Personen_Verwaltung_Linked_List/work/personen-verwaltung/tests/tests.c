@@ -175,8 +175,8 @@ static void test_list_remove(void) {
     result = list_remove(&anchor, &p2);
     CU_ASSERT_EQUAL(result, 0);
     // Liste: Anker -> p1 (Huber) -> p3 (Schmidt) -> Anker
-    CU_ASSERT_PTR_EQUAL(
-        anchor.next, anchor.next->next->next); // p1->next sollte jetzt p3 sein
+    // CU_ASSERT_PTR_EQUAL(
+    //     anchor.next, anchor.next->next->next); // p1->next sollte jetzt p3 sein
     CU_ASSERT_EQUAL(person_compare(&anchor.next->content, &p1), 0);
     CU_ASSERT_EQUAL(person_compare(&anchor.next->next->content, &p3), 0);
 
